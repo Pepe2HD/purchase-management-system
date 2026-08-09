@@ -8,11 +8,13 @@ class PurchaseRequest extends Model
 {
     protected $fillable = ['description', 'service_order_id', 'status'];
 
-    public function payments() {
+    public function paymentOrders()
+    {
         return $this->hasMany(PaymentOrder::class);
     }
 
-    public function serviceOrder() {
+    public function serviceOrder()
+    {
         return $this->belongsTo(ServiceOrder::class);
     }
 }

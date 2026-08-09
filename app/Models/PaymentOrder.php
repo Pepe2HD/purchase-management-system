@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PaymentOrder extends Model
 {
-    public function purchaseRequest() {
+    protected $fillable = ['purchase_request_id', 'type', 'total_amount'];
+
+    public function purchaseRequest()
+    {
         return $this->belongsTo(PurchaseRequest::class);
     }
 
-    public function installments() {
+    public function installments()
+    {
         return $this->hasMany(Installment::class);
     }
 }
